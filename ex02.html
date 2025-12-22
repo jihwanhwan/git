@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 02</title>
+
+    <script src="./ex02.js"></script>
+
+    <script>
+        console.log("함수 전의 내용");
+        function func1(){
+            console.log("함수 실행");
+            //document.write("내용 추가")
+            let test = document.getElementById("div1")
+            console.log( test )
+            test.style.color = "red"
+            test.innerHTML = "<h1>안녕</h1>"
+        }
+        console.log("함수 다음 내용");
+        // func1()/
+        console.log("함수 호출 후 내용");
+
+        function func2(){
+            // alert("test");
+            let div2 = document.querySelector("#div2");
+            let cls = document.querySelector(".class2")
+            console.log(div2)
+            console.log(cls)
+            div2.innerHTML = "내용 변경"
+            cls.innerHTML = "클래스 변경"
+        }
+
+        function func3(){
+            let div3 = document.getElementById("div3")
+            div3.innerHTML = "김개똥"
+        }
+        function func4(){
+            let div3 = document.querySelector("#div3")
+            div3.innerHTML = "홍길동"
+        }
+
+
+        function func5(){
+            let div = document.getElementById('div4')
+            div.style.backgroundColor= "red";
+            div.className="abc";
+        }
+
+        function func6(){
+            let div = document.getElementById('div4')
+            div.style.backgroundColor= "";
+            div.className="";
+        }
+        function func7(){
+            let div = document.getElementById('div4')
+            div.style.display= "none";
+            div.className="";
+        }
+        function func8(){
+            let div = document.getElementById('div4')
+            div.style.display= "block";
+            div.className="";
+        }
+    </script>
+
+    <style>
+        #div4{background-color: aqua;}
+        .abc{color: #fff;}
+    </style>
+
+
+</head>
+<body>
+
+    <div id="div4">홍길동</div>
+    <button onclick="func5()">변경</button>
+    <button onclick="func6()">되돌리기</button>
+    <br>
+    <button onclick="func7()">숨기기</button>
+    <button onclick="func8()">보이기</button>
+
+    <hr>
+
+    <div id="div3">홍길동</div>
+    <button onclick="func3()">변경</button>
+    <button onclick="func4()">되돌리기</button>
+
+    <hr>
+
+    <div id="div2">div2</div>
+    <div class="class2">class2</div>
+    <span onclick="func2()">클릭</span>
+
+    <hr>
+
+    <div id="div1">안녕하세요</div>
+    <button onclick="func1()">클릭</button>
+</body>
+</html>
