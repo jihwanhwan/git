@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 04</title>
+
+    <!-- 스크립트 연결 -->
+     <script>
+        function init(){
+            // alert("실행")
+            let div = document.getElementById('div1');
+            // document.getElementById('div1').innerHTML = "test"
+            div.innerHTML = "test"
+            console.log ( div )
+            console.log ( document.getElementById('div1') )
+
+            div.style.color = "blue";
+            // document.getElementById('div1').style.color = "blue";
+
+            // 변수를 사용하겠다 = 계속 사용해야할 값이 있다  / 일회성 변수 지정 X
+
+            // 프롬포트 prompt();
+            // 자료형 변환
+            let name = prompt("이름 입력");
+            let age = prompt(`나이 입력`)
+            
+            console.log("age type : " , typeof(age))
+            console.log("age type : " , typeof( Number(age)))
+            console.log("age type : " , typeof( parseInt(age)))
+
+            // 숫자를 문자로 변환
+            // ageNum + "" 또는 ageNum.toString();
+            let ageNum = Number(age / 3);
+            let ageNum2 = parseInt(age / 3);
+
+            console.log("ageNum type : " , typeof( parseInt(ageNum)))
+
+            
+            console.log("Number type : " , Number(age) / 3 )
+            console.log("parseInt type : " , parseInt(age) / 3)
+
+
+            document.getElementById('div1').innerHTML = `
+                <b>이름</b> : ${name}<br>
+                <b>나이</b> : ${age + 1}<br>
+                <b>나이</b> : ${ageNum + 1}
+            `
+
+            let num = 123;
+            console.log("num : " , num);
+            num = "문자로 변환";
+            console.log("변경후 num : " , num);
+
+            // 해당 변수를 상수화
+            const str = "안녕하세요";
+            console.log(`str : ${str}`)
+            // str = "변경합니다";
+            console.log(`변경후 str : ${str}`)
+        }
+
+
+        function test01(){
+            document.getElementById('div1').style.fontSize = "30px";
+            document.getElementById('div1').style.color = "green";
+            document.getElementById('div1').innerHTML = "안녕하세요";
+        }
+
+        function test02(){
+            let div = document.getElementById('div1');
+            div.style.fontSize = "24px";
+            div.style.color = "red";
+            div.innerHTML = "반가워";
+        }
+
+     </script>
+</head>
+<body onload="init()">
+    <div id="div1"></div>
+    <button onclick="test01()">클릭</button>
+    <button onclick="test02()">클릭</button>
+</body>
+</html>

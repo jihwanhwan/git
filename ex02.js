@@ -1,102 +1,160 @@
-// console.log("test")
-// alert("test1234")
-
-
 $(document).ready(function(){
-    // 과제 : 풀페이지 진행 (.sec-4,.sec-5,.footer제외) 스크롤바 활성화
-    media();
-    function media(){
-        let windowWidth = $(window).width();
-        if(windowWidth >= 1800){
-            //fullpage
-            new fullpage('#wrap',{
-                scrollBar:true,
-                normalScrollElements: '.sec-4,.sec-5,.footer',
-                fitToSection:false,
-                scrollingSpeed: 500,
-            })
-        }else{
+    // active영역
 
-        }
-    }
+    $('#hamburger').click(function(){
+      $(this).toggleClass('active');
+      // $('.header-menu').toggleClass('active');
+      $(this).siblings('.sidebar').toggleClass('on');
+      // $(".dimmed").toggleClass('on');
+    });    
 
-    //sub-menu
-    //마우스 올리면 카테고리에 맞는 탭 활성화 / 헤더 색상변경 / 서브메뉴 박스에서 마우스 나가면 기존 상태로 다시 변경
-    $('.main-menu li').mouseenter(function(){
-        let result = $(this).attr('data-alt');
-        $('.sub-menu').removeClass('active');
-        $(`#${result}`).addClass('active');
-
-        //서브메뉴박스 보이게
-        $('.sub-menu-box').addClass('active');
-
-        //헤더색상 변경
-        $('.header-area').addClass('active');
-        $('.header-logo svg').addClass('active');
-
-    });
-
-    $('.sub-menu-box').mouseleave(function(){
-        $(this).removeClass('active');
-
-        //헤더색상 원래대로 돌리기
-        $('.header-area').removeClass('active');
-        $('.header-logo svg').removeClass('active');
-    });
-
-    //스크롤 위치값에 맞춰 클래스 제어
+    // 
     $(window).scroll(function(){
-        const sct = $(window).scrollTop();
-        console.log(sct);
+      const sct = $(window).scrollTop();
 
-        //섹션별 상단 위치값 변수에 저장
-        const banner = $('.banner').offset().top;
-        const sec1 = $('.sec-1').offset().top;
-        const sec2 = $('.sec-2').offset().top;
-        const sec5 = $('.sec-5').offset().top;
-
-        if(sct >= banner && sct < sec1){
-            $('.header-area').removeClass('active');
-            $('.header-logo svg').removeClass('active');
-            $('.header-logo').removeClass('active');
-        }else if(sct >= sec1 && sct < sec2){
-            $('.header-area').addClass('active');
-            $('.header-logo svg').addClass('active');
-            $('.header-logo').addClass('active');
-        }else if(sct >= sec2 && sct < sec5){
-            $('.header-area').removeClass('active');
-            $('.header-logo svg').removeClass('active');
-        }else if(sct >= sec5){
-            $('.header-area').addClass('active');
-            $('.header-logo svg').addClass('active');
-        }
-
+      console.log(sct);
+      
+      if(sct >= 1000){
+        $('.header-area').addClass('active')
+        $('.header-area .header-logo svg').addClass('active')
+        $('.header-area .header-menu .menu li').addClass('active')
+        $('#hamburger span').addClass('on')
+      }else{
+        $('.header-area').removeClass('active')
+        $('.header-area .header-logo svg').removeClass('active')
+        $('.header-area .header-menu .menu li').removeClass('active')
+        $('#hamburger span').removeClass('on')
+      }
     });
 
-    //sec-4 swiper
-    new Swiper('.mySwiper',{
-        direction:"vertical",
-        slidePerView:"auto",
-        speed: 500,
+
+
+
+    // $('.header-area .header-menu .menu').mouseleave(function(){
+    //   $('.header-area').removeClass('active')
+    //   $('.header-area .header-logo svg').removeClass('active')
+    //   $('.header-area .header-menu .menu li').removeClass('active')
+    //   $('.sub-menu-wrap').removeClass('active')
+    // });
+
+    // 서브메뉴박스
+    $('.header-area .header-menu .menu li a').mouseenter(function(){
+      $('.header-area').addClass('active')
+      $('.header-area .header-logo svg').addClass('active')
+      $('.header-area .header-menu .menu li').addClass('active')
+      // $('.sub-menu-wrap').addClass('active')
+    });
+
+
+    $('.header-area .header-menu .menu li a').mouseenter(function(){
+      $('.sub-menu-wrap').addClass('active')
+    });
+
+    $('.sub-menu-wrap').mouseleave(function(){
+      $('.header-area').removeClass('active')
+      $('.sub-menu-wrap').removeClass('active')
+    });
+
+
+
+
+
+
+    // sec-4 swiper
+    var swiper = new Swiper(".firstSwiper", {
+
+        // slidesPerView:3,
+        // spaceBetween: 24,
+        // slidesPerGroup:1,
+
         loop:true,
-        autoplay:{
-            delay:1500,
-            disableOnInteraction:false,
+        speed : 1500,
+        autoplay :{
+          delay:2000,
+          disableOnInteraction: false,
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints:{
+          1420:{
+            slidesPerView: 3,
+            spaceBetween: 24,
+            slidesPerGroup:1,
+          },
+          1000:{
+            slidesPerView: 2,
+            spaceBetween: 20,
+            slidesPerGroup:1,
+          },
+          0:{
+            slidesPerView: 3,
+            spaceBetween: 16,
+            slidesPerGroup:1,
+          }
         }
-    })
-    
-    // 상단이동버튼 300px 이상일때 최상단으로 올라가는 상단이동버튼 구현해보기(배너에서 없어져있다가 sec1에서부터 보이게)
-    let btn = $('.top-btn');
-    $(window).scroll(function(){
-        if($(window).scrollTop() >= 300){
+      });
+
+
+
+      var swiper = new Swiper(".secondSwiper", {
+
+        loop:true,
+        speed : 1500,
+        autoplay :{
+          delay:2000,
+          disableOnInteraction: false,
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints:{
+          1420:{
+            slidesPerView: 3,
+            spaceBetween: 24,
+            slidesPerGroup:1,
+          },
+          1000:{
+            slidesPerView: 2,
+            spaceBetween: 20,
+            slidesPerGroup:1,
+          },
+          0:{
+            slidesPerView: 3,
+            spaceBetween: 16,
+            slidesPerGroup:1,
+          }
+          // 500:{
+          //   slidesPerView: 3,
+          //   spaceBetween: 16,
+          //   slidesPerGroup:1,
+          // },
+        }
+      });
+
+      
+      AOS.init();
+
+
+      // 탑버튼
+      const btn = $('.top-btn');
+      $(window).scroll(function(){
+        if($(window).scrollTop() > 300){
             btn.fadeIn();
         }else{
             btn.fadeOut();
         }
     });
-    btn.click(function(){
-        $('html,body').animate({
-            scrollTop: 0
-        },500);
-    });
+    btn.on('click',function(e){
+      e.preventDefault();
+      $('html,body').animate({
+          scrollTop:0
+      },100);
+      });
 });
