@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ 01</title>
+
+    <!-- 스크립트 연결 -->
+    <script>
+        function init(){
+            let div = document.getElementById('div1')
+            let name = prompt("이름 입력") //"김개동"
+            let age = prompt(name + "나이 입력") //20
+            // let age = prompt(`${age} 나이 입력`)
+
+            let msg = `
+                <table border="1">
+                    <tr>
+                        <th>이름</th><th>나이</th>
+                    </tr>
+                    <tr>
+                        <td>${name}</td><th>${age}</th>
+                    </tr>
+                </table>
+            `
+            div.innerHTML = msg;
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="div1">
+
+    </div>
+</body>
+</html>
