@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ 02 </title>
+
+
+    <script>
+        function init(){
+            let num1 = 20; //prompt("수 입력");
+            console.log(10 % 2);
+            console.log(11 % 2);
+            console.log(12 % 2);
+
+            console.log(10 % 2 == 0);
+            console.log(11 % 2 == 0);
+            console.log(12 % 2 == 0);
+
+            let result = ( num1 % 2 == 0) ? " : 짝수" : ":홀수";
+            console.log( num1 + result )
+            document.write(num1 + result)            
+            
+            console.log("--- 3의 배수 확인 ---")
+            let num2 = 20; //prompt("수 입력");
+            console.log(10 % 3 == 0 );
+            console.log(11 % 3 == 0);
+            console.log(12 % 3 == 0);
+            console.log(13 % 3);
+            console.log(14 % 3);
+            console.log(15 % 3);
+            console.log(12123123 % 3);
+
+            let result2 = ( num2 % 3 == 0) ? "3의 배수" : "아님";
+            document.write(result2) 
+
+            let n1=10, n2=20;
+            let result3 = (n1 > n2) ? "n1이 n2보다 크다" : "n2크다";
+            document.write(result3) 
+
+            
+        }
+    </script>
+
+</head>
+<body onload="init()">
+    
+</body>
+</html>

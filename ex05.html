@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+
+    <script>
+        function init(){
+            const num1 = 10;
+            const num2 = 4;
+            console.log(`num1 + num2 : ${num1 + num2}`)
+            console.log(`num1 - num2 : ${num1 - num2}`)
+            console.log(`num1 * num2 : ${num1 * num2}`)
+            console.log(`num1 / num2 : ${num1 / num2}`)
+            console.log(`num1 / num2 : ${ parseInt(num1 / num2)}`)
+            console.log("num1 % num2 + " , (num1 % num2) )
+
+            console.log("=== 복합 대입 연산자 ===")
+            let n1, n2;
+            n1 = n2 = 5;
+            
+            n1 = n1 + 3;
+            console.log(`n1 = n1 + 3 -> ${n1}`)
+
+            n2 += 3;
+            console.log(`n2 += 3 -> ${n2}`)
+
+            n1 *= 2; //n1 = n1 * 2
+            console.log(`n1 * 2 -> ${n1}`)
+
+            n2 -= 10; // n2(-2) = n2(8) - 10;
+            console.log(`n2 -=10  -> ${n2}`)
+
+            n1 = n1 + 1; //17
+            console.log(`n1 = n1 + 1 -> ${n1}`)
+
+            n1 += 1; //18
+            console.log(`n1 += 1 -> ${n1}`)
+
+            n1++; //19
+            console.log(`n1++ -> ${n1}`)
+
+            ++n1; //20
+            console.log(`n1++ -> ${n1}`)
+
+            --n1; //19
+            console.log(`n1-- -> ${n1}`)
+
+
+            console.log("=== 관계 연산자 ===")
+            n1 = "3"; n2 = 4;
+            let n3 = 3;
+
+            console.log(`n1(3) <= (4)n2 : ${n1 <= n2}`)
+            console.log(`n1(3) >= (4)n2 : ${n1 >= n2}`)
+
+            console.log(`n1(3) == (4)n2 : ${n1 == n2}`)
+            console.log(`n1(3) == (3)n3 : ${n1 == n3}`)
+            console.log(`n1(3) === (3)n2 : ${n1 === n3}`)
+
+
+            console.log(`n1(3) != (4)n2 : ${n1 != n2}`)
+            console.log(`n1(3) != (3)n3 : ${n1 !== n3}`)
+            console.log(`n1(3) !== (3)n2 : ${n1 !== n3}`)
+
+            console.log("=== 논리 연산자 ===")
+            // 10 > 5 > 3 => 10 > 5  10 > 3 
+            // && : 모두가 참일 때 참이 나온다
+            console.log( "(10>5) && (10>3)=> ", (10>5) && (10>3 ) )
+            console.log( "(10>5) -> ", (10 > 5) )
+            console.log( "(10>3) -> ", (10 > 3) )
+            console.log( "true && true -> ", (true > true) )
+
+            console.log( "(10>5) && (10>20) -> ", (true > true) )
+
+            //&&: 모두가 참일 때 참이 나온다
+           console.log("(10>5) && (10>3)=>", (10>5)&&(10>3))
+           console.log("(10>5)=>", (10>5))
+           console.log("(10>3)=>", (10>3))
+           console.log("true && true=>", true&&true)
+           console.log("(10>5) && (10>20)=>", (10>5)&&(10>20)) //거짓하나로 인한 false
+           console.log("true && false=>", true&&false)
+
+           // || : 하나라도 참인 경우 참
+           console.log("(10>5) || (10>3)=>", (10>5)||(10>3))
+           console.log("true || true=>", true||true)
+           console.log("(10>5) || (10>20)=>", (10>5)||(10>20))
+           console.log("true || false=>", true||false)
+           
+           // ! : 부정, 결과를 반전 시켜준다
+           console.log("!true:", !true)
+           console.log("!(10<5):", !(10<5))
+           console.log("===삼항(조건) 연산자===")
+           let x =5, y=7;
+           let result;
+           
+           // 변수=(조건식) ? 참인경우 : 거짓인경우;
+           result=(x<y) ? "x는 y보다 작다" : "y가 x보다 크다";
+           console.log(result)
+           //큰수-작은수=결과
+           x=100;
+           y=500; 
+           //result=y-x;
+           result=(x>y) ? x-y:y-x ;
+           console.log(result)
+
+
+
+        }    
+
+
+    </script>
+</head>
+<body onload="init()">
+    
+</body>
+</html>
