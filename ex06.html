@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let num = 0;
+        let div;
+
+        function init(){
+            //let num = 0;
+            //document.getElementById("div").innerHTML = num;
+            div = document.getElementById("div")
+            div.innerHTML= num;
+            div.className= "";
+        }
+
+        function up(){
+            num++; // num = num+1;
+            //document.getElementById("div").innerHTML = num;
+            div.innerHTML = num;
+        }
+
+        function down(){
+            num-= 1; // num = num -1; num--;
+            //document.getElementById("div").innerHTML = num;/
+            div.innerHTML= num;
+        }
+
+        function back(){
+            //div.style.backgroundColor= "red";
+            console.log(div.className)
+            div.className = div.className + "backColor "
+            //div.className += "backColor";
+            console.log(div.className)
+        }
+
+        function color(){
+            //div.style.color = "blue";
+            console.log(div.className)
+            div.className += "color ";
+            console.log(div.className)
+        }
+
+    </script>
+
+
+    <style>
+        .backColor{
+            background-color: aqua;
+        }
+        .color{
+            color: #fff;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div id="div"></div>
+    <button onclick="up()">up</button>
+    <button onclick="down()">down</button>
+
+    <hr>
+
+    <button onclick="init()">초기화</button>  
+    <button onclick="back()">배경색</button>  
+    <button onclick="color()">글자색</button>  
+</body>
+</html>

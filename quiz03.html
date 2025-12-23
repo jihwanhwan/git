@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let bool = true;
+
+        function change(){
+            console.log(bool)
+            console.log(!bool)
+
+            let div = document.getElementById("div1")
+            let btn = document.getElementById("btn")
+            let color = ( bool ) ? "back" : "";
+            let msg = (bool) ? "되돌리기" : "변경";
+
+            div.className = color
+            btn.innerHTML = msg
+
+            bool = !bool;     
+        }
+
+        let size = 15;
+        function plus(){
+            size += 3;
+            let div = document.getElementById("div1")
+            div.style.fontSize= size+"px";
+        }
+        
+        function minus(){
+            size -= 3;
+            let div = document.getElementById("div1")
+            div.style.fontSize= size+"px"
+        }
+
+        let x = 1;
+        function prev(){
+            x = (x == 1) ? 8 : x - 1;
+            //x = x-1;
+            let img = document.getElementById("pic")
+            img.src = "images/images/최근상품0"+ x +".jpg" 
+
+        }
+
+        function next(){
+            // 9번 없음
+            x = (x == 8) ? 1 : x +1 
+            //x = x +1;
+            let img = document.getElementById("pic")
+            img.src = "images/images/최근상품0" + x +".jpg" 
+
+        }
+
+        
+    </script>
+
+
+
+    <style>
+        .back {background-color: gold;}
+        #wrap{
+            width: 150px;height: 150px;text-align: center;
+        }
+        #pic{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <div id="wrap">
+        <img src="images/images/최근상품01.jpg" alt="" id="pic">
+        <input type="button" value="이전사진" onclick="prev()">
+        <input type="button" value="다음사진" onclick="next()">
+    </div>
+
+
+    <div id="div1">div</div>
+    <button onclick="change()" id="btn">변경</button>
+    <hr>
+
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+    <!-- <hr>
+    <div id="div1" class="back">div</div>
+    <button onclick="change()" id="btn">되돌리기</button> -->
+</body>
+</html>
