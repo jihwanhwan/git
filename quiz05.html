@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let msg, id, pwd, pwd_check ,name;
+        // msg = document.querySelector('#msg');
+
+
+        function id_check(){
+            const msg = document.querySelector('#msg')
+            const id = document.querySelector('#id')
+            console.log(id.value.length)
+            let txt;
+            const saveId = "javascript";
+
+            if(id.value.length > 3 ){
+                // txt = "길이 성공"
+                if (saveId === id.value){
+                    txt = "존재하는 id 입니다"
+                }else{
+                    txt = "가입 가능한 id 입니다"
+                }
+            }else{
+                txt = "길이 짧다"
+            }
+            msg.innerHTML = txt
+        }
+
+        function pwdCheck(){
+            const pwd = document.getElementById("pwd")
+            const pwd_check = document.getElementById("pwd_check")
+            const msg = document.querySelector('#msg')
+            console.log("실행")
+
+            if(pwd.value == pwd_check.value){
+                msg.innerHTML = "일치합니다"
+            }else{
+                msg.innerHTML = "비밀번호 일치하지 않음"
+                pwd.value = ""
+                pwd.focus();
+                pwd_check.value = ""
+            }
+        }
+
+        function btn(){
+            // alert ("지환")
+            const id = document.getElementById("id");
+            const pwd = document.getElementById("pwd");
+            const pwd_check = document.getElementById("pwd_check");
+            const name = document.getElementById("name");
+            const msg = document.getElementById("msg")
+
+            msg.innerHTML = `
+                <h3>입력 데이터</h3>
+                id : <b>${id.value}</b><br>
+                pwd : <b>${pwd.value}</b><br>
+                pwdCheck : <b>${pwd_check.value}</b><br>
+                name : <b>${name.value}</b><br>
+             `
+            
+
+        }
+
+    </script>
+</head>
+<body>
+
+
+    <input type="text" id="id" oninput="id_check()"><br>
+    <input type="text" id="pwd"><br>
+    <input type="text" id="pwd_check" onchange="pwdCheck()"><br>
+    <input type="text" id="name"><br>
+    <div id="msg"></div>
+    <button onclick="btn()">가입</button>
+</body>
+</html>
